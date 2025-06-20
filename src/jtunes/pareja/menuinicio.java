@@ -54,6 +54,11 @@ public class menuinicio extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton1.setText("Lista de Canciones");
         jButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 252, 252));
         jButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
@@ -145,6 +150,11 @@ public class menuinicio extends javax.swing.JFrame {
         iniciar.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  dispose();
+        listacanciones iniciar = new listacanciones();
+        iniciar.setVisible(true);    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
