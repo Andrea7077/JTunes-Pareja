@@ -18,7 +18,6 @@ public class jtunesClass {
         this.canciones = new songClass[5];
     }
 
-    
     public boolean addSong(int codigo, String nombre, double precio, ImageIcon ImagenDisco) {
 
         for (songClass cancion : canciones) {
@@ -35,4 +34,23 @@ public class jtunesClass {
         }
         return false;
     }
-}
+
+    public songClass searchSong(int codigo) {
+        for (songClass cancion : canciones) {
+            if (cancion != null && cancion.getCodigo() == codigo) {
+
+                return cancion;
+            }
+
+        }
+        return null;
+    }
+
+    public void rateSong(int codigo, int stars) {
+        songClass cancion = searchSong(codigo);
+            if (cancion != null) {
+                cancion.addStars(stars);
+            }
+        }
+    }
+
