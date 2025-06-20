@@ -44,4 +44,23 @@ public class songClass {
         return ImagenDisco;
     }
 
+    public void addStar(int stars) {
+        if (stars >= 0 && stars <= 5) {
+
+            this.sumaEstrella += stars;
+            this.totalReviews++;
+        }
+    }
+
+    public double songRating() {
+        if (totalReviews == 0) {
+            return 0.0;
+        }
+        return (double) sumaEstrella/totalReviews;
+    }
+
+    void addStars(int stars) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 }
