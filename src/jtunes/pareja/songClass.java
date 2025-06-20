@@ -44,4 +44,19 @@ public class songClass {
         return ImagenDisco;
     }
 
+    public void addStar(int stars) {
+        if (stars >= 0 && stars <= 5) {
+
+            this.sumaEstrella += stars;
+            this.totalReviews++;
+        }
+    }
+
+    public double songRating() {
+        if (totalReviews == 0) {
+            return 0.0;
+        }
+        return (double) sumaEstrella/totalReviews;
+    }
+
 }
