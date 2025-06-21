@@ -12,10 +12,19 @@ import javax.swing.ImageIcon;
  */
 public class jtunesClass {
 
-    private songClass[] canciones;
+    private static jtunesClass jTunesInstance;
+    songClass canciones[];
 
-    public jtunesClass(int tamano) {
-        this.canciones = new songClass[5];
+    private jtunesClass() {
+        this.canciones = new songClass[80];
+
+    }
+
+    public static jtunesClass getInstance() {
+        if (jTunesInstance == null) {
+            jTunesInstance = new jtunesClass();
+        }
+        return jTunesInstance;
     }
 
     public boolean addSong(int codigo, String nombre, double precio, ImageIcon ImagenDisco) {
@@ -29,6 +38,8 @@ public class jtunesClass {
         for (int i = 0; i < canciones.length; i++) {
             if (canciones[i] == null) {
                 canciones[i] = new songClass(codigo, nombre, precio, ImagenDisco);
+                return true;
+
             }
 
         }
@@ -48,9 +59,29 @@ public class jtunesClass {
 
     public void rateSong(int codigo, int stars) {
         songClass cancion = searchSong(codigo);
-            if (cancion != null) {
-                cancion.addStars(stars);
-            }
+        if (cancion != null) {
+            cancion.addStar(stars);
         }
     }
 
+    public songClass[] getAllSongs() {
+        int contador = 0;
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null) {
+                contador++;
+            }
+        }
+
+        songClass cancionesDisponibles[] = new songClass[contador];
+        int indx = 0;
+
+        for (int i = 0; i < canciones.length; i++) {
+            if (canciones[i] != null) {
+                cancionesDisponibles[indx] = canciones[i];
+                indx++;
+            }
+        }
+        return cancionesDisponibles;
+    }
+
+}
